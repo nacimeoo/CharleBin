@@ -20,6 +20,7 @@ use PrivateBin\Persistence\ServerSalt;
  * Paste
  *
  * Model of a PrivateBin paste.
+ * @package  PrivateBin
  */
 class Paste extends AbstractModel
 {
@@ -131,9 +132,9 @@ class Paste extends AbstractModel
     /**
      * Get a comment, optionally a specific instance.
      *
-     * @access public
-     * @param string $parentId
-     * @param string $commentId
+     * @access public   
+     * @param string $parentId  id parent
+     * @param string $commentId  id comment
      * @throws Exception
      * @return Comment
      */
@@ -208,7 +209,7 @@ class Paste extends AbstractModel
      * @param  array $data
      * @return array
      */
-    protected function _sanitize(array $data)
+    protected function sanitize(array $data)
     {
         $expiration = $data['meta']['expire'];
         unset($data['meta']['expire']);
